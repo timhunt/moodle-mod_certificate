@@ -202,3 +202,9 @@ $string['viewcertificateviews'] = 'View {$a} issued certificates';
 $string['viewed'] = 'You received this certificate on:';
 $string['viewtranscript'] = 'View Certificates';
 $string['watermark'] = 'Watermark';
+
+// ou-specific begins #5017
+$string['disclaimer'] = 'This statement does not imply the award of credit points or the conferment of an Open University qualification';
+$string['statementofparticipation'] = 'Statement of Participation';
+$string['typeou'] = 'OU statement of participation';
+// ou-specific ends #5017
