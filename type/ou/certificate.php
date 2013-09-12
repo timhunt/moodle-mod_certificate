@@ -69,8 +69,9 @@ $title           =  93;
 $username        = 145;
 $date            = 160;
 $customtext      = 195;
+$grade           = 239;
 $disclaimer      = 250;
-$code            = 268;
+$code            = 266;
 
 $generalx    = 20;
 $titlex      = 50;
@@ -86,6 +87,10 @@ $borders = array(
 );
 
 make_cache_directory('tcpdf');
+
+// Work out the grade text.
+$gradetext = certificate_get_grade($certificate, $course);
+$gradetext = str_replace(' ' . get_string('grade', 'certificate') . ':', ':', $gradetext);
 
 // Background image
 certificate_print_image($pdf, $certificate, CERT_IMAGE_WATERMARK, $wmarkx, $wmarky, $wmarkw, $wmarkh);
@@ -108,6 +113,7 @@ certificate_ou_print_text($pdf, $titlex,      $title,           'C', 'Helvetica'
 certificate_ou_print_text($pdf, $generalx,    $username,        'C', 'Helvetica', '',  24, fullname($USER));
 certificate_ou_print_text($pdf, $generalx,    $date,            'C', 'Helvetica', '',  18, certificate_get_date($certificate, $certrecord, $course));
 certificate_ou_print_text($pdf, $customtextx, $customtext,      'C', 'Helvetica', '',  16, $certificate->customtext);
+certificate_ou_print_text($pdf, $generalx,    $grade,           'C', 'Helvetica', '',  12, $gradetext);
 certificate_ou_print_text($pdf, $disclaimerx, $disclaimer,      'C', 'Helvetica', '',  12, get_string('disclaimer', 'certificate'));
 if ($certificate->printnumber) {
     certificate_ou_print_text($pdf, $generalx, $code,           'C', 'Helvetica', '',  12, certificate_get_code($certificate, $certrecord));
