@@ -33,7 +33,7 @@ if ($certificate->printhours) {
     $credithours = '';
 }
 
-$pdf = new TCPDF($certificate->orientation, 'mm', 'A4', true, 'UTF-8', false);
+$pdf = new PDF($certificate->orientation, 'mm', 'A4', true, 'UTF-8', false);
 
 $pdf->SetTitle($certificate->name);
 $pdf->setPrintHeader(false);
